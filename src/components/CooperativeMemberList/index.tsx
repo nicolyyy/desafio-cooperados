@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CooperativeMember } from "../../types/CooperativeMember";
 import { CooperativeMemberViewModal } from "../CooperativeMemberViewModal";
-import { Table, Td } from "./styles";
+import { Button, Table, Td } from "./styles";
 
 type Props = {
   list: CooperativeMember[];
@@ -24,7 +24,7 @@ export const CooperativeMemberList = (props: Props) => {
   };
 
   const ActionButtonComponent = ({ label, onClick }: { label: string, onClick: () => void }) => (
-    <input type="button" value={label} onClick={onClick} />
+    <Button value={label} onClick={onClick} />
   );
 
   return (
@@ -34,6 +34,7 @@ export const CooperativeMemberList = (props: Props) => {
           <Td>Nome</Td>
           <Td>CPF</Td>
           <Td>Data de Nascimento</Td>
+          <Td>Ações</Td>
         </tr>
         {list.map((cooperativeMember) => {
           return (

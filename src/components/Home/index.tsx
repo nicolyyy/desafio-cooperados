@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Article, Content } from "./styles";
+import { Header, Container, Content, Button, ListContent } from "./styles";
 
 import { CooperativeMember, PageEnum } from "../../types/CooperativeMember";
 
 import { CooperativeMemberList } from "../CooperativeMemberList";
 import { AddCooperativeMember } from "../AddCooperativeMember";
 import { EditCooperativeMember } from "../EditCooperativeMember";
+import GlobalStyle from "../../utils/globalStyles";
 
 const Home = () => {
   const [cooperativeMemberList, setCooperativeMemberList] = useState(
@@ -65,40 +66,45 @@ const Home = () => {
 
   return (
     <>
-      <Article>
-        <header>
+     <GlobalStyle />
+      <Container>
+        <Header>
           <h1>Cadastro de Cooperados</h1>
-        </header>
-      </Article>
+        </Header>
 
-      <Content>
-        {/* melhorar essa lógica */}
-        {page === PageEnum.list && (
-          <>
-            <button onClick={onAddCooperativeMember}>Adicionar cooperado</button>
-            <CooperativeMemberList
-              list={cooperativeMemberList}
-              onHandleDelete={deleteCooperativeMember}
-              onHandleEdit={editCooperativeMemberData}
+        <Content>
+          <ListContent>
+            {/* melhorar essa lógica */}
+            {page === PageEnum.list && (
+              <>
+                <CooperativeMemberList
+                  list={cooperativeMemberList}
+                  onHandleDelete={deleteCooperativeMember}
+                  onHandleEdit={editCooperativeMemberData}
+                />
+                <Button onClick={onAddCooperativeMember}>
+                  Adicionar cooperado
+                </Button>
+              </>
+            )}
+          </ListContent>
+
+          {page === PageEnum.add && (
+            <AddCooperativeMember
+              onBackBtnClick={showCooperativeMemberListPage}
+              onSubmit={addCooperativeMember}
             />
-          </>
-        )}
+          )}
 
-        {page === PageEnum.add && (
-          <AddCooperativeMember
-            onBackBtnClick={showCooperativeMemberListPage}
-            onSubmit={addCooperativeMember}
-          />
-        )}
-
-        {page === PageEnum.edit && (
-          <EditCooperativeMember
-            data={editedData}
-            onBackBtnClick={showCooperativeMemberListPage}
-            onUpdateBtnClick={updatedData}
-          />
-        )}
-      </Content>
+          {page === PageEnum.edit && (
+            <EditCooperativeMember
+              data={editedData}
+              onBackBtnClick={showCooperativeMemberListPage}
+              onUpdateBtnClick={updatedData}
+            />
+          )}
+        </Content>
+      </Container>
     </>
   );
 };

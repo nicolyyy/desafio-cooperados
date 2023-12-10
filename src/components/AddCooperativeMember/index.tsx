@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { CooperativeMember } from "../../types/CooperativeMember";
+import { Box, Button, Content, Form, Label } from "./styles";
 
 type Props = {
   onBackBtnClick: () => void;
@@ -33,37 +34,36 @@ export const AddCooperativeMember = (props: Props) => {
       cpf: cpf,
       birthDate: birthDate,
     };
-    
+
     // melhorar essa lógica
     onSubmit(data);
     onBackBtnClick();
   };
 
   return (
-    <form>
-      <div>
-        <label>Nome:</label>
-        <input type="text" value={name} onChange={onHandleName}></input>
-      </div>
-      <div>
-        <label>CPF:</label>
-        <input type="text" value={cpf} onChange={onHandleCpf}></input>
-      </div>
-      <div>
-        <label>Data de Nascimento:</label>
-        <input
-          type="text"
-          value={birthDate}
-          onChange={onHandleBirthDate}
-        ></input>
-      </div>
-
-      <input type="button" value="Voltar" onClick={onBackBtnClick} />
-      <input
-        type="button"
-        value="Adicionar Cooperado"
-        onClick={onHandleSubmit}
-      />
-    </form>
+    <Box>
+      <Form>
+        <div>
+          <Label>Nome:</Label>
+          <input type="text" value={name} onChange={onHandleName}></input>
+        </div>
+        <div>
+          <Label>CPF:</Label>
+          <input type="text" value={cpf} onChange={onHandleCpf}></input>
+        </div>
+        <div>
+          <Label>Data de Nascimento:</Label>
+          <input
+            type="text"
+            value={birthDate}
+            onChange={onHandleBirthDate}
+          ></input>
+        </div>
+      <Content>
+        <Button onClick={onBackBtnClick}> Voltar </Button>
+        <Button onClick={onHandleSubmit}> Adicionar cooperado </Button>
+      </Content>
+      </Form>
+    </Box>
   );
 };
