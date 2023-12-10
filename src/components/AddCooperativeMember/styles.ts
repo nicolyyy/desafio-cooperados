@@ -49,3 +49,7 @@ export const Label = styled.label`
   color: #333;
   margin: 15px 0;
 `;
+
+export const RadioButton = styled.input`
+  width: 10px;
+`;
