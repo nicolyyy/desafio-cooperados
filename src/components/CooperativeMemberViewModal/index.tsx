@@ -28,7 +28,7 @@ export const CooperativeMemberViewModal = (props: Props) => {
         {data.name}
         <br />
         <span>Cpf: </span>
-        {data.cpf}
+        {data.identificationNumber}
         <br />
         <span>Data de Nascimento: </span>
         {data.birthDate}

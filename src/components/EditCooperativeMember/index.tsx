@@ -11,15 +11,15 @@ export const EditCooperativeMember = (props: Props) => {
   const { data, onBackBtnClick, onUpdateBtnClick } = props;
 
   const [name, setName] = useState(data.name);
-  const [cpf, setCpf] = useState(data.cpf);
+  const [identificationNumber, setIdentificationNumber] = useState(data.identificationNumber);
   const [birthDate, setBirthDate] = useState(data.birthDate);
 
   const onHandleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
-  const onHandleCpf = (e: ChangeEvent<HTMLInputElement>) => {
-    setCpf(e.target.value);
+  const onHandleIdentificationNumber = (e: ChangeEvent<HTMLInputElement>) => {
+    setIdentificationNumber(e.target.value);
   };
 
   const onHandleBirthDate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,8 +31,9 @@ export const EditCooperativeMember = (props: Props) => {
     const updatedData: CooperativeMember = {
       id: data.id,
       name: name,
-      cpf: cpf,
+      identificationNumber: identificationNumber,
       birthDate: birthDate,
+      legalEntityType: data.legalEntityType,
     };
 
     // melhorar essa lógica
@@ -49,7 +50,7 @@ export const EditCooperativeMember = (props: Props) => {
         </div>
         <div>
           <label>CPF:</label>
-          <input type="text" value={cpf} onChange={onHandleCpf}></input>
+          <input type="text" value={identificationNumber} onChange={onHandleIdentificationNumber}></input>
         </div>
         <div>
           <label>Data de Nascimento:</label>

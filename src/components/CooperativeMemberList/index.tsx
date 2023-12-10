@@ -23,29 +23,48 @@ export const CooperativeMemberList = (props: Props) => {
     setIsModalVisible(false);
   };
 
-  const ActionButtonComponent = ({ label, onClick }: { label: string, onClick: () => void }) => (
-    <Button value={label} onClick={onClick} />
-  );
+  const ActionButtonComponent = ({
+    label,
+    onClick,
+  }: {
+    label: string;
+    onClick: () => void;
+  }) => <Button value={label} onClick={onClick} />;
 
   return (
     <>
       <Table>
         <tr>
           <Td>Nome</Td>
-          <Td>CPF</Td>
-          <Td>Data de Nascimento</Td>
+          <Td>CPF/CNJPJ</Td>
+          <Td>Data de Nascimento/Data de Constituição</Td>
+          <Td>Renda/Faturamento</Td>
+          <Td>Telefone</Td>
           <Td>Ações</Td>
         </tr>
         {list.map((cooperativeMember) => {
           return (
             <tr key={cooperativeMember.id}>
               <Td>{`${cooperativeMember.name}`}</Td>
-              <Td>{`${cooperativeMember.cpf}`}</Td>
+              <Td>{`${cooperativeMember.identificationNumber}`}</Td>
               <Td>{`${cooperativeMember.birthDate}`}</Td>
+              <Td>{`${cooperativeMember.income}`}</Td>
+              <Td>{`${cooperativeMember.phoneNumber}`}</Td>
               <Td>
-                <ActionButtonComponent label="Visualizar" onClick={() => showCooperativeMemberDetails(cooperativeMember)} />
-                <ActionButtonComponent label="Editar" onClick={() => onHandleEdit(cooperativeMember)} />
-                <ActionButtonComponent label="Deletar" onClick={() => onHandleDelete(cooperativeMember)} />
+                <ActionButtonComponent
+                  label="Visualizar"
+                  onClick={() =>
+                    showCooperativeMemberDetails(cooperativeMember)
+                  }
+                />
+                <ActionButtonComponent
+                  label="Editar"
+                  onClick={() => onHandleEdit(cooperativeMember)}
+                />
+                <ActionButtonComponent
+                  label="Deletar"
+                  onClick={() => onHandleDelete(cooperativeMember)}
+                />
               </Td>
             </tr>
           );
