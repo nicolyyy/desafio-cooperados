@@ -16,8 +16,9 @@ Antes de tudo, você terá que ter instalado no seu computador o NPM.
 
 #### Para iniciar a aplicação:
 ```
-Clone o repositório usando o seguinte comando: https://github.com/nicolyyy/desafio-cooperados.git
-Acesse o diretório a raiz do diretório e rode o seguinte comando para iniciar a aplicação: npm  start
+1) Clone o repositório usando o seguinte comando: https://github.com/nicolyyy/desafio-cooperados.git
+2) Rode o seguinte comando para instalar as dependências do projeto: npm install
+3) Acesse o diretório a raiz do diretório e rode o seguinte comando para iniciar a aplicação: npm  start
 ```
 
 
