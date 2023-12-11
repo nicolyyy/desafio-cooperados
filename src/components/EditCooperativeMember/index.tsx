@@ -51,7 +51,6 @@ export const EditCooperativeMember = (props: Props) => {
       phoneNumber: phoneNumber,
     };
 
-    // melhorar essa lógica
     onUpdateBtnClick(updatedData);
     onBackBtnClick();
   };

@@ -78,7 +78,6 @@ export const AddCooperativeMember = (props: Props) => {
       return;
     }
 
-    // melhorar essa lógica
     onSubmit(data);
     onBackBtnClick();
   };
