@@ -1,6 +1,16 @@
 import { ChangeEvent, useState } from "react";
+import InputMask from "react-input-mask";
 import { CooperativeMember } from "../../types/CooperativeMember";
-import { Box, Button, Content, Form, Label, RadioButton } from "./styles";
+import {
+  Box,
+  Button,
+  Content,
+  Form,
+  Label,
+  RadioButton,
+  RadioButtonContainer,
+} from "./styles";
+import { Container } from "../Home/styles";
 
 type Props = {
   onBackBtnClick: () => void;
@@ -33,7 +43,10 @@ export const AddCooperativeMember = (props: Props) => {
   };
 
   const onHandleIdentificationNumber = (e: ChangeEvent<HTMLInputElement>) => {
-    setIdentificationNumber(e.target.value);
+    const inputValue = e.target.value
+      .replace(/\D/g, "")
+      .slice(0, MAX_IDENTIFICATION_DIGITS);
+    setIdentificationNumber(inputValue);
   };
 
   const onHandleBirthDate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -71,14 +84,15 @@ export const AddCooperativeMember = (props: Props) => {
   };
 
   const isLegalPerson = cooperativeMember.legalEntityType === "jurídica";
+  const MAX_IDENTIFICATION_DIGITS = 14;
 
   return (
     <Box>
       <Form>
         <Label>
           Tipo de Pessoa:
-          <Label>
-            Pessoa Física
+          <br />
+          <RadioButtonContainer>
             <RadioButton
               type="radio"
               checked={cooperativeMember.legalEntityType === "física"}
@@ -91,9 +105,9 @@ export const AddCooperativeMember = (props: Props) => {
               name="tipoPessoa"
               value="física"
             />
-          </Label>
-          <Label>
-            Pessoa Jurídica
+            <Label>Pessoa Física</Label>
+          </RadioButtonContainer>
+          <RadioButtonContainer>
             <RadioButton
               type="radio"
               name="tipoPessoa"
@@ -106,9 +120,9 @@ export const AddCooperativeMember = (props: Props) => {
                 }))
               }
             />
-          </Label>
+            <Label>Pessoa Jurídica</Label>
+          </RadioButtonContainer>
         </Label>
-
         {isLegalPerson ? (
           <>
             <div>
@@ -122,39 +136,43 @@ export const AddCooperativeMember = (props: Props) => {
             </div>
             <div>
               <Label>CNPJ:</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="99.999.999/9999-99"
                 value={identificationNumber}
                 onChange={onHandleIdentificationNumber}
                 required
-              ></input>
+              ></InputMask>
             </div>
             <div>
               <Label>Data de Constituição:</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="99/99/9999"
                 value={birthDate}
                 onChange={onHandleBirthDate}
                 required
-              ></input>
+              ></InputMask>
             </div>
             <div>
               <Label>Faturamento (opcional):</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="R$ 99,999,999.99"
                 value={income}
                 onChange={onHandleIncome}
                 required
-              ></input>
+              ></InputMask>
             </div>
             <div>
               <Label>Telefone (opcional):</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="(99) 99999-9999"
                 value={phoneNumber}
                 onChange={onHandlePhoneNumber}
                 required
-              ></input>
+              ></InputMask>
             </div>
           </>
         ) : (
@@ -170,39 +188,43 @@ export const AddCooperativeMember = (props: Props) => {
             </div>
             <div>
               <Label>CPF:</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="999.999.999-99"
                 value={identificationNumber}
                 onChange={onHandleIdentificationNumber}
                 required
-              ></input>
+              ></InputMask>
             </div>
             <div>
               <Label>Data de Nascimento:</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="99/99/9999"
                 value={birthDate}
                 onChange={onHandleBirthDate}
                 required
-              ></input>
+              ></InputMask>
             </div>
             <div>
               <Label>Renda (opcional):</Label>
-              <input
+              <InputMask
                 type="text"
                 value={income}
+                mask="R$ 999999999"
                 onChange={onHandleIncome}
                 required
-              ></input>
+              ></InputMask>
             </div>
             <div>
               <Label>Telefone (opcional):</Label>
-              <input
+              <InputMask
                 type="text"
+                mask="(99) 99999-9999"
                 value={phoneNumber}
                 onChange={onHandlePhoneNumber}
                 required
-              ></input>
+              ></InputMask>
             </div>
           </>
         )}

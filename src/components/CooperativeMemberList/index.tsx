@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 import { CooperativeMember } from "../../types/CooperativeMember";
 import { CooperativeMemberViewModal } from "../CooperativeMemberViewModal";
-import { Button, Table, Td } from "./styles";
+
+import { Button, ButtonsContainer, Table, Td, Th, Tr } from "./styles";
 
 type Props = {
   list: CooperativeMember[];
@@ -34,23 +36,23 @@ export const CooperativeMemberList = (props: Props) => {
   return (
     <>
       <Table>
-        <tr>
-          <Td>Nome</Td>
-          <Td>CPF/CNJPJ</Td>
-          <Td>Data de Nascimento/Data de Constituição</Td>
-          <Td>Renda/Faturamento</Td>
-          <Td>Telefone</Td>
-          <Td>Ações</Td>
-        </tr>
+        <Tr>
+          <Th>Nome</Th>
+          <Th>CPF/CNPJ</Th>
+          <Th>Data de Nascimento/Data de Constituição</Th>
+          <Th>Renda/Faturamento</Th>
+          <Th>Telefone</Th>
+          <Th>Ações</Th>
+        </Tr>
         {list.map((cooperativeMember) => {
           return (
-            <tr key={cooperativeMember.id}>
+            <Tr key={cooperativeMember.id}>
               <Td>{`${cooperativeMember.name}`}</Td>
               <Td>{`${cooperativeMember.identificationNumber}`}</Td>
               <Td>{`${cooperativeMember.birthDate}`}</Td>
               <Td>{`${cooperativeMember.income}`}</Td>
               <Td>{`${cooperativeMember.phoneNumber}`}</Td>
-              <Td>
+              <ButtonsContainer>
                 <ActionButtonComponent
                   label="Visualizar"
                   onClick={() =>
@@ -65,8 +67,8 @@ export const CooperativeMemberList = (props: Props) => {
                   label="Deletar"
                   onClick={() => onHandleDelete(cooperativeMember)}
                 />
-              </Td>
-            </tr>
+              </ButtonsContainer>
+            </Tr>
           );
         })}
       </Table>

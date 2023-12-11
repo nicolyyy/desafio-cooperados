@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Header, Container, Content, Button, ListContent } from "./styles";
+import { Container, Content, Button, ListContent, H1, H2 } from "./styles";
 
 import { CooperativeMember, PageEnum } from "../../types/CooperativeMember";
 
 import { CooperativeMemberList } from "../CooperativeMemberList";
 import { AddCooperativeMember } from "../AddCooperativeMember";
 import { EditCooperativeMember } from "../EditCooperativeMember";
+
 import GlobalStyle from "../../utils/globalStyles";
 
 const Home = () => {
@@ -66,11 +67,10 @@ const Home = () => {
 
   return (
     <>
-     <GlobalStyle />
+      <GlobalStyle />
       <Container>
-        <Header>
-          <h1>Cadastro de Cooperados</h1>
-        </Header>
+        <H1>Cadastro de Cooperados</H1>
+        <H2>Desafio Front-End</H2>
 
         <Content>
           <ListContent>

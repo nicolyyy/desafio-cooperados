@@ -1,11 +1,20 @@
 import styled from "styled-components"
 
-export const Header = styled.header`
-  background-color: cadetblue;
-  color: white;
+export const H1 = styled.h1`
+  font-size: 45px; 
+  font-weight: 300;
+  line-height: 1em;
   text-align: center;
-  width: 100%;
-  padding: 24px 0;
+  color: #fafafa;
+  margin: 2% 0;
+`;
+
+export const H2 = styled.h2`
+  font-size: 20px; 
+  font-weight: 300;
+  text-align: center;
+  color: #fafafa;
+  margin: 2% 0;
 `;
 
 export const Container = styled.div`
@@ -30,15 +39,13 @@ export const ListContent = styled.div`
 export const Button = styled.button`
   width: 200px;
   height: 42px;
-  background-color: cadetblue;
+  background-color: #377A76;
   border-radius: 4px;
-  color: #FFF;
+  color: #fafafa;
   font-weight: bold;
   font-size: 16px;
   border: 0;
   align-self: flex-end;
   margin-top: 40px;
-  margin-left: 30px;
-  transition: background-color 0.2s;
   cursor: pointer;
 `;

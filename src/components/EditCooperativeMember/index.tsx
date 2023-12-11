@@ -11,7 +11,9 @@ export const EditCooperativeMember = (props: Props) => {
   const { data, onBackBtnClick, onUpdateBtnClick } = props;
 
   const [name, setName] = useState(data.name);
-  const [identificationNumber, setIdentificationNumber] = useState(data.identificationNumber);
+  const [identificationNumber, setIdentificationNumber] = useState(
+    data.identificationNumber
+  );
   const [birthDate, setBirthDate] = useState(data.birthDate);
 
   const onHandleName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +52,11 @@ export const EditCooperativeMember = (props: Props) => {
         </div>
         <div>
           <label>CPF:</label>
-          <input type="text" value={identificationNumber} onChange={onHandleIdentificationNumber}></input>
+          <input
+            type="text"
+            value={identificationNumber}
+            onChange={onHandleIdentificationNumber}
+          ></input>
         </div>
         <div>
           <label>Data de Nascimento:</label>
