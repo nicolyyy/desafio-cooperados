@@ -8,11 +8,23 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url(../../../fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 900;
+    src: local('Poppins'), url(../../../fonts/Poppins/Poppins-Black.ttf) format('truetype');
+  }
+
   body {
     margin: 0;
     padding: 0;
-    font-family: Roboto, sans-serif;
-    background: #FFFF;
+    font-family: 'Poppins', sans-serif;
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
   }
 
   input, button, textarea{
