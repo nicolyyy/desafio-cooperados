@@ -4,7 +4,7 @@ export interface CooperativeMember {
   id: string;
   name: string;
   identificationNumber: string;
-  birthDate: string;
+  date: string;
   legalEntityType: LegalEntityType | '';
   income?: string;
   phoneNumber?: string;
