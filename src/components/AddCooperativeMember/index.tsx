@@ -10,7 +10,6 @@ import {
   RadioButton,
   RadioButtonContainer,
 } from "./styles";
-import { Container } from "../Home/styles";
 
 type Props = {
   onBackBtnClick: () => void;
