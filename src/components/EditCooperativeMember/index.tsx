@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { CooperativeMember } from "../../types/CooperativeMember";
+import { ButtonsContainer, Form, InputButton } from "./styles";
 
 type Props = {
   data: CooperativeMember;
@@ -15,6 +16,8 @@ export const EditCooperativeMember = (props: Props) => {
     data.identificationNumber
   );
   const [birthDate, setBirthDate] = useState(data.birthDate);
+  const [income, setIncome] = useState(data.income);
+  const [phoneNumber, setPhoneNumber] = useState(data.phoneNumber);
 
   const onHandleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -28,6 +31,14 @@ export const EditCooperativeMember = (props: Props) => {
     setBirthDate(e.target.value);
   };
 
+  const onHandleIncome = (e: ChangeEvent<HTMLInputElement>) => {
+    setIncome(e.target.value);
+  };
+
+  const onHandlePhoneNumber = (e: ChangeEvent<HTMLInputElement>) => {
+    setPhoneNumber(e.target.value);
+  };
+
   const onHandleSubmit = (e: any) => {
     e.preventDefault();
     const updatedData: CooperativeMember = {
@@ -36,6 +47,8 @@ export const EditCooperativeMember = (props: Props) => {
       identificationNumber: identificationNumber,
       birthDate: birthDate,
       legalEntityType: data.legalEntityType,
+      income: income,
+      phoneNumber: phoneNumber,
     };
 
     // melhorar essa lógica
@@ -43,37 +56,92 @@ export const EditCooperativeMember = (props: Props) => {
     onBackBtnClick();
   };
 
+  const isLegalPerson = data.legalEntityType === "jurídica";
+
   return (
     <>
-      <form>
-        <div>
-          <label>Nome:</label>
-          <input type="text" value={name} onChange={onHandleName}></input>
-        </div>
-        <div>
-          <label>CPF:</label>
-          <input
-            type="text"
-            value={identificationNumber}
-            onChange={onHandleIdentificationNumber}
-          ></input>
-        </div>
-        <div>
-          <label>Data de Nascimento:</label>
-          <input
-            type="text"
-            value={birthDate}
-            onChange={onHandleBirthDate}
-          ></input>
-        </div>
+      <Form>
+        {isLegalPerson ? (
+          <>
+            <div>
+              <label>Nome:</label>
+              <input type="text" value={name} onChange={onHandleName} />
+            </div>
+            <div>
+              <label>CNPG:</label>
+              <input
+                type="text"
+                value={identificationNumber}
+                onChange={onHandleIdentificationNumber}
+              />
+            </div>
+            <div>
+              <label>Data de Constituição:</label>
+              <input
+                type="text"
+                value={birthDate}
+                onChange={onHandleBirthDate}
+              />
+            </div>
+            <div>
+              <label>Faturamento:</label>
+              <input type="text" value={birthDate} onChange={onHandleIncome} />
+            </div>
+            <div>
+              <label>Telefone:</label>
+              <input
+                type="text"
+                value={birthDate}
+                onChange={onHandlePhoneNumber}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <label>Nome:</label>
+              <input type="text" value={name} onChange={onHandleName} />
+            </div>
+            <div>
+              <label>CPF:</label>
+              <input
+                type="text"
+                value={identificationNumber}
+                onChange={onHandleIdentificationNumber}
+              />
+            </div>
+            <div>
+              <label>Data de Nascimento:</label>
+              <input
+                type="text"
+                value={birthDate}
+                onChange={onHandleBirthDate}
+              />
+            </div>
+            <div>
+              <label>Renda:</label>
+              <input type="text" value={birthDate} onChange={onHandleIncome} />
+            </div>
+            <div>
+              <label>Telefone:</label>
+              <input
+                type="text"
+                value={birthDate}
+                onChange={onHandlePhoneNumber}
+              />
+            </div>
+          </>
+        )}
 
-        <input type="button" value="Voltar" onClick={onBackBtnClick} />
-        <input
-          type="button"
-          value="Editar Informações do Cooperado"
-          onClick={onHandleSubmit}
-        />
-      </form>
+        <ButtonsContainer>
+          <InputButton type="button" value="Voltar" onClick={onBackBtnClick} />
+          <InputButton
+            type="button"
+            value="Salvar Informações do Cooperado"
+            onClick={onHandleSubmit}
+          />
+        </ButtonsContainer>
+      </Form>
     </>
   );
 };

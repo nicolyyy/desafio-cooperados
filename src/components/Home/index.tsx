@@ -77,14 +77,14 @@ const Home = () => {
             {/* melhorar essa lógica */}
             {page === PageEnum.list && (
               <>
+              <Button onClick={onAddCooperativeMember}>
+                  Adicionar cooperado
+                </Button>
                 <CooperativeMemberList
                   list={cooperativeMemberList}
                   onHandleDelete={deleteCooperativeMember}
                   onHandleEdit={editCooperativeMemberData}
                 />
-                <Button onClick={onAddCooperativeMember}>
-                  Adicionar cooperado
-                </Button>
               </>
             )}
           </ListContent>
