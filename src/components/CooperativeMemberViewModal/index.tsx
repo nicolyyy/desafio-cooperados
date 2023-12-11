@@ -41,7 +41,7 @@ export const CooperativeMemberViewModal = (props: Props) => {
 
             <Content>
               <span>Data de Constituição: </span>
-              {data.birthDate}
+              {data.date}
             </Content>
 
             <Content>
@@ -68,7 +68,7 @@ export const CooperativeMemberViewModal = (props: Props) => {
 
             <Content>
               <span>Data de Nascimento: </span>
-              {data.birthDate}
+              {data.date}
             </Content>
 
             <Content>

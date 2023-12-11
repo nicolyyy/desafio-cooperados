@@ -22,7 +22,7 @@ export const AddCooperativeMember = (props: Props) => {
 
   const [name, setName] = useState("");
   const [identificationNumber, setIdentificationNumber] = useState("");
-  const [birthDate, setBirthDate] = useState("");
+  const [date, setDate] = useState("");
   const [income, setIncome] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
@@ -31,7 +31,7 @@ export const AddCooperativeMember = (props: Props) => {
       id: "",
       name: "",
       identificationNumber: "",
-      birthDate: "",
+      date: "",
       legalEntityType: "",
       income: "",
       phoneNumber: "",
@@ -50,7 +50,7 @@ export const AddCooperativeMember = (props: Props) => {
   };
 
   const onHandleBirthDate = (e: ChangeEvent<HTMLInputElement>) => {
-    setBirthDate(e.target.value);
+    setDate(e.target.value);
   };
 
   const onHandleIncome = (e: ChangeEvent<HTMLInputElement>) => {
@@ -68,12 +68,12 @@ export const AddCooperativeMember = (props: Props) => {
       name,
       identificationNumber,
       legalEntityType: "",
-      birthDate,
+      date,
       income,
       phoneNumber,
     };
 
-    if (!name || !identificationNumber || !birthDate) {
+    if (!name || !identificationNumber || !date) {
       alert("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
@@ -149,7 +149,7 @@ export const AddCooperativeMember = (props: Props) => {
               <InputMask
                 type="text"
                 mask="99/99/9999"
-                value={birthDate}
+                value={date}
                 onChange={onHandleBirthDate}
                 required
               ></InputMask>
@@ -201,7 +201,7 @@ export const AddCooperativeMember = (props: Props) => {
               <InputMask
                 type="text"
                 mask="99/99/9999"
-                value={birthDate}
+                value={date}
                 onChange={onHandleBirthDate}
                 required
               ></InputMask>

@@ -49,7 +49,7 @@ export const CooperativeMemberList = (props: Props) => {
             <Tr key={cooperativeMember.id}>
               <Td>{`${cooperativeMember.name}`}</Td>
               <Td>{`${cooperativeMember.identificationNumber}`}</Td>
-              <Td>{`${cooperativeMember.birthDate}`}</Td>
+              <Td>{`${cooperativeMember.date}`}</Td>
               <Td>{`${cooperativeMember.income}`}</Td>
               <Td>{`${cooperativeMember.phoneNumber}`}</Td>
               <ButtonsContainer>

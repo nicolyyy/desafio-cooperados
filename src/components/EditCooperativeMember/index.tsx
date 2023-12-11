@@ -15,7 +15,7 @@ export const EditCooperativeMember = (props: Props) => {
   const [identificationNumber, setIdentificationNumber] = useState(
     data.identificationNumber
   );
-  const [birthDate, setBirthDate] = useState(data.birthDate);
+  const [date, setDate] = useState(data.date);
   const [income, setIncome] = useState(data.income);
   const [phoneNumber, setPhoneNumber] = useState(data.phoneNumber);
 
@@ -28,7 +28,7 @@ export const EditCooperativeMember = (props: Props) => {
   };
 
   const onHandleBirthDate = (e: ChangeEvent<HTMLInputElement>) => {
-    setBirthDate(e.target.value);
+    setDate(e.target.value);
   };
 
   const onHandleIncome = (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +45,7 @@ export const EditCooperativeMember = (props: Props) => {
       id: data.id,
       name: name,
       identificationNumber: identificationNumber,
-      birthDate: birthDate,
+      date: date,
       legalEntityType: data.legalEntityType,
       income: income,
       phoneNumber: phoneNumber,
@@ -77,21 +77,17 @@ export const EditCooperativeMember = (props: Props) => {
             </div>
             <div>
               <label>Data de Constituição:</label>
-              <input
-                type="text"
-                value={birthDate}
-                onChange={onHandleBirthDate}
-              />
+              <input type="text" value={date} onChange={onHandleBirthDate} />
             </div>
             <div>
               <label>Faturamento:</label>
-              <input type="text" value={birthDate} onChange={onHandleIncome} />
+              <input type="text" value={income} onChange={onHandleIncome} />
             </div>
             <div>
               <label>Telefone:</label>
               <input
                 type="text"
-                value={birthDate}
+                value={phoneNumber}
                 onChange={onHandlePhoneNumber}
               />
             </div>
@@ -112,21 +108,17 @@ export const EditCooperativeMember = (props: Props) => {
             </div>
             <div>
               <label>Data de Nascimento:</label>
-              <input
-                type="text"
-                value={birthDate}
-                onChange={onHandleBirthDate}
-              />
+              <input type="text" value={date} onChange={onHandleBirthDate} />
             </div>
             <div>
               <label>Renda:</label>
-              <input type="text" value={birthDate} onChange={onHandleIncome} />
+              <input type="text" value={income} onChange={onHandleIncome} />
             </div>
             <div>
               <label>Telefone:</label>
               <input
                 type="text"
-                value={birthDate}
+                value={phoneNumber}
                 onChange={onHandlePhoneNumber}
               />
             </div>
