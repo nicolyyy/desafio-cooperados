@@ -68,7 +68,7 @@ export const EditCooperativeMember = (props: Props) => {
               <input type="text" value={name} onChange={onHandleName} />
             </div>
             <div>
-              <label>CNPG:</label>
+              <label>CNPJ:</label>
               <input
                 type="text"
                 value={identificationNumber}
